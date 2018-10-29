@@ -59,6 +59,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="28dp"
+        android:onClick="login"
         android:text="Login"
         android:textAppearance="@android:style/TextAppearance.Material.Large"
         app:layout_constraintStart_toStartOf="@+id/ed_password"
