@@ -15,12 +15,14 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
     }
     public void login(View view){
+                 //變數名稱                                            //id
         EditText edUserid = findViewById(R.id.ed_userid);
         EditText edPassword = findViewById(R.id.ed_password);
         String uid = edUserid.getText().toString();
         String pw = edPassword.getText().toString();
-        if(uid.equals("apple") && pw.equals(123)){
+        if(uid.equals("apple") && pw.equals("123")){
             Toast.makeText(this , "登入成功" , Toast.LENGTH_LONG).show();
+            setResult(RESULT_OK);
             finish();
         }else{//登入失敗
            new  AlertDialog.Builder(this).setTitle("Atm")
