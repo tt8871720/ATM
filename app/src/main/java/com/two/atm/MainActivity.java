@@ -23,8 +23,8 @@ startActivityForResult(intent , RC_LOGIN);
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-if(resultCode == RESULT_OK){//成功登入,收到回傳值RC_LOGIN(100)
-    if(resultCode != RC_LOGIN){}//但不是因為帳密正確而成功所以退出
+if(requestCode == RC_LOGIN){//成功登入,收到回傳值RC_LOGIN(100)
+    if(resultCode != RESULT_OK){}//但不是因為帳密正確而成功所以退出
     finish();}
 
     }
