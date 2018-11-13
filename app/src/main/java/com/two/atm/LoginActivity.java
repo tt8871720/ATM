@@ -13,6 +13,8 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        EditText edUserid = findViewById(R.id.ed_userid);
+        edUserid.setText(getSharedPreferences("atm" , MODE_PRIVATE).getString("USERID" , ""));
     }
     public void login(View view){
                  //變數名稱                                            //id
@@ -22,6 +24,10 @@ public class LoginActivity extends AppCompatActivity {
         String pw = edPassword.getText().toString();
         if(uid.equals("apple") && pw.equals("123")){
             Toast.makeText(this , "登入成功" , Toast.LENGTH_LONG).show();
+            getSharedPreferences("USERID" , MODE_PRIVATE)
+               .edit()
+                    .putString("USERID" , uid)
+                    .apply();
             setResult(RESULT_OK);
             finish();
         }else{//登入失敗

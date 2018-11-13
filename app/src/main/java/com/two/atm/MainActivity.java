@@ -15,7 +15,6 @@ public class MainActivity extends AppCompatActivity {
     if(!logon){//若還沒登入將跳到LoginActivity
         Intent intent = new Intent(this , LoginActivity.class);
 startActivityForResult(intent , RC_LOGIN);
-
     }
     }
 
@@ -26,6 +25,10 @@ startActivityForResult(intent , RC_LOGIN);
 if(requestCode == RC_LOGIN){//成功登入,收到回傳值RC_LOGIN(100)
     if(resultCode != RESULT_OK){}//但不是因為帳密正確而成功所以退出
     finish();}
+    else{
+    Intent nickname = new Intent(this , NicknameActivity.class );
+    startActivity(nickname);
+}
 
     }
 }
