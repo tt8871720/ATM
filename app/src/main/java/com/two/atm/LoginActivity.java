@@ -21,9 +21,6 @@ public class LoginActivity extends AppCompatActivity {
         String uid = getSharedPreferences("Atm" , MODE_PRIVATE)
                 .getString("USERNAME" , " ");//" "為空字串
         edusername.setText(uid);
-
-//        EditText edUserid = findViewById(R.id.ed_userid);
-//        edUserid.setText(getSharedPreferences("atm" , MODE_PRIVATE).getString("USERID" , ""));
     }
     public void login(View view){
                  //變數名稱                                            //id

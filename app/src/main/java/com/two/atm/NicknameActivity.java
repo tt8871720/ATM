@@ -9,16 +9,18 @@ import android.widget.EditText;
 
 public class NicknameActivity extends AppCompatActivity {
 
+    private EditText ednickname;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nickname);
     }
     public void next(View view){
-        EditText ednickname = findViewById(R.id.ed_nickname);
+        ednickname = findViewById(R.id.ed_nickname);
         String nickname = ednickname.getText().toString();
         getSharedPreferences("user" , MODE_PRIVATE)
-        .edit().putString("user" , nickname)
+        .edit().putString("NICKNAME" , nickname)
         .apply();
         Intent age = new Intent(this , AgeActivity.class);
         startActivity(age);
