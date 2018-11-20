@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
                 String gender = getSharedPreferences("user" , MODE_PRIVATE)
                         .getString("GENDER" , null);
                 //只要資料沒有填齊,就要再回到NicknameActivity
-                if(nickname == null || age == 0 || gender == null){
+                if(){
            Intent nick = new Intent(this , NicknameActivity.class);
            startActivity(nick);
             }}
