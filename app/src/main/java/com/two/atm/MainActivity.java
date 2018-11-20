@@ -25,16 +25,22 @@ public class MainActivity extends AppCompatActivity {
             if(resultCode != RESULT_OK){
                 finish();
             }else {
-           Intent nickname = new Intent(this , NicknameActivity.class);
-           startActivity(nickname);
-            }
+                logon = true;
+                String nickname = getSharedPreferences("user" , MODE_PRIVATE)
+                        .getString("NICKNAME" , null);
+                int age = getSharedPreferences("user" , MODE_PRIVATE)
+                        .getInt("AGE" , 0);
+                String gender = getSharedPreferences("user" , MODE_PRIVATE)
+                        .getString("GENDER" , null);
+                //只要資料沒有填齊,就要再回到NicknameActivity
+                if(nickname == null || age == 0 || gender == null){
+           Intent nick = new Intent(this , NicknameActivity.class);
+           startActivity(nick);
+            }}
         }
     }
 }
-//    else{
-//    Intent nickname = new Intent(this , NicknameActivity.class );
-//    startActivity(nickname);
-//}
+
 
 
 

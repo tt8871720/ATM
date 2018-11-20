@@ -24,6 +24,8 @@ public class GenderActivity extends AppCompatActivity {
                 .apply();
         Intent main = new Intent(this , MainActivity.class);
         setResult(RESULT_OK);
+        // single clear 刪除面的Activity
+        // single top 回到指定的Activity而非重新建立一個刪除前面的
         main.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
         startActivity(main);
     }
