@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
-public class GenderActivity extends AppCompatActivity {
+public class GenderActivity extends BaseActivity {
 
     private EditText edgender;
 
@@ -18,10 +18,7 @@ public class GenderActivity extends AppCompatActivity {
     public void next (View view){
         edgender = findViewById(R.id.ed_gender);
         String gender = edgender.getText().toString();
-        getSharedPreferences("user" , MODE_PRIVATE)
-                .edit()
-                .putString("GENDER" , gender)
-                .apply();
+      user.setGender(gender);
         Intent main = new Intent(this , MainActivity.class);
         setResult(RESULT_OK);
         // single clear 刪除面的Activity
