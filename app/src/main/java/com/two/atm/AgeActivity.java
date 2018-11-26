@@ -22,4 +22,7 @@ public class AgeActivity extends BaseActivity {
         Intent gender = new Intent(this , GenderActivity.class);
         startActivity(gender);
     }
+    public void back(View view){
+        finish();
+    }
 }

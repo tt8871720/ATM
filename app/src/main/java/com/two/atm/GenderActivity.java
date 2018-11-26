@@ -26,4 +26,7 @@ public class GenderActivity extends BaseActivity {
         main.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
         startActivity(main);
     }
+    public void back(View view){
+        finish();
+    }
 }
