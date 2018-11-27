@@ -5,11 +5,17 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class MainActivity extends BaseActivity{
     private static final int RC_LOGIN = 1;
     boolean logon = false; //預設已經登入了
-
+    List<String> fruits = Arrays.asList("Banana" , "Guava" , "Pinapple");
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,6 +26,19 @@ public class MainActivity extends BaseActivity{
             Intent intent = new Intent(this, LoginActivity.class);
             startActivityForResult(intent, RC_LOGIN);
         }
+
+      //  list(fruits);
+        // RecyclerView
+ 
+    }
+
+    class FruitsAdapter{
+
+    }
+    private void list(List<String> fruits) {
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this , android.R.layout.simple_list_item_1 , fruits);
+        ListView listview = findViewById(R.id.list);
+        listview.setAdapter(adapter);
     }
 
     @Override
