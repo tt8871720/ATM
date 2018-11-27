@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -29,7 +30,7 @@ public class MainActivity extends BaseActivity{
 
       //  list(fruits);
         // RecyclerView
- 
+        RecyclerView recyclerView = findViewById(R.id.recycler)
     }
 
     class FruitsAdapter{
