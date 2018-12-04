@@ -20,6 +20,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class MainActivity extends BaseActivity {
+    //數字隨便設
     private static final int RC_LOGIN = 1;
     boolean logon = false; //預設已經登入了
     List<String> fruits = Arrays.asList("Banana", "Guava", "Pinapple");
@@ -49,7 +50,7 @@ public class MainActivity extends BaseActivity {
 
     //    }
     class FruitAdapter extends RecyclerView.Adapter<FruitAdapter.FruitViewHolder> {
-        //紅字時按Alt + Enter = implement
+        //紅字時按Alt + Enter = implement,就會自動出現下列@
         @NonNull
         @Override
         public FruitViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -60,7 +61,7 @@ public class MainActivity extends BaseActivity {
 
         @Override
         public void onBindViewHolder(@NonNull FruitAdapter.FruitViewHolder holder, int position) {
-
+//因為這裡沒有內容,所以還不會顯示
         }
 
         @Override
@@ -79,9 +80,8 @@ public class MainActivity extends BaseActivity {
     }
 
     public void listView() {
-        List<String> fruits = Arrays.asList("香蕉", "鳳梨", "芭樂");
-        ArrayAdapter<String> adapter =
-                new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, fruits);
+        List<String> fruits = Arrays.asList("Banana", "Guava", "Pinapple");
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, fruits);
         ListView listView = findViewById(R.id.list);
         listView.setAdapter(adapter);
     }
