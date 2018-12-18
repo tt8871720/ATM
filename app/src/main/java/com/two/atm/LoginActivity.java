@@ -21,6 +21,8 @@ public class LoginActivity extends AppCompatActivity {
         String uid = getSharedPreferences("Atm" , MODE_PRIVATE)
                 .getString("USERNAME" , " ");//" "為空字串
         edusername.setText(uid);
+        DBHelper helper = new DBHelper(this , "money .db" , null , 1);
+        helper.getWritableDatabase().insert()
     }
     public void login(View view){
                  //變數名稱                                            //id

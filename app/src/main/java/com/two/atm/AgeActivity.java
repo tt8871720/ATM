@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +18,8 @@ public class AgeActivity extends BaseActivity {
 
     private EditText edage;
 int [] num = {18 , 19 , 20 , 21};
+    private EditText edAge;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,6 +28,7 @@ int [] num = {18 , 19 , 20 , 21};
         recyclerview.setHasFixedSize(true);
         recyclerview.setLayoutManager(new LinearLayoutManager(this));
         recyclerview.setAdapter(new AgeAdapter());
+
     }
     public void next (View view){
         edage = findViewById(R.id.ed_age);
@@ -50,12 +54,19 @@ int [] num = {18 , 19 , 20 , 21};
             }
 
             @Override
-            public void onBindViewHolder(@NonNull AgeViewHolder holder, int position) {
+            public void onBindViewHolder(@NonNull AgeViewHolder holder, final int position) {
                 // 因為setText放int會以為是value+ ""使num[position]變成String
 holder.ageText.setText(num[position]+"");
 if(num[position] == 19){
     holder.ageText.setTextColor(Color.RED);
 }
+//holder.itemview.serOnClickListener() 用itemview可以不一定要按到數字才會有反應
+holder.ageText.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        Log.d("AgeActivuty" , "onclick" + num[position]);
+    }
+});
             }
 
             @Override
