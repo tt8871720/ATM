@@ -22,7 +22,7 @@ public class LoginActivity extends AppCompatActivity {
                 .getString("USERNAME" , " ");//" "為空字串
         edusername.setText(uid);
         DBHelper helper = new DBHelper(this , "money .db" , null , 1);
-        helper.getWritableDatabase().insert()
+     //   helper.getWritableDatabase().insert()
     }
     public void login(View view){
                  //變數名稱                                            //id
