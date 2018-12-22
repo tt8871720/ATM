@@ -1,5 +1,6 @@
 package com.two.atm;
 
+import android.content.ContentValues;
 import android.content.SharedPreferences;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -21,8 +22,14 @@ public class LoginActivity extends AppCompatActivity {
         String uid = getSharedPreferences("Atm" , MODE_PRIVATE)
                 .getString("USERNAME" , " ");//" "為空字串
         edusername.setText(uid);
+        //DBHelper記帳表
         DBHelper helper = new DBHelper(this , "money .db" , null , 1);
-     //   helper.getWritableDatabase().insert()
+        ContentValues values = new ContentValues();
+        //輸入記帳資料
+        values.put("cdate" , "2018-12-22");
+        values.put("info" , "Parking");
+        values.put("expand" , 30);
+        helper.getWritableDatabase().insert("exp" , null , values);
     }
     public void login(View view){
                  //變數名稱                                            //id
