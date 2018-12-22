@@ -17,21 +17,24 @@ import android.widget.TextView;
 public class AgeActivity extends BaseActivity {
 
     private EditText edage;
-int [] num = {18 , 19 , 20 , 21};
-    private EditText edAge;
+int [] num = {18 , 19 , 20 , 21 , 22 , 23 , 24};
+String rainbow[] = null;
+    private EditText edage1;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_age);
+        rainbow = getResources().getStringArray(R.array.colorful);
         RecyclerView recyclerview = findViewById(R.id.recycler);
         recyclerview.setHasFixedSize(true);
         recyclerview.setLayoutManager(new LinearLayoutManager(this));
         recyclerview.setAdapter(new AgeAdapter());
-
+        edage = findViewById(R.id.ed_age);
     }
     public void next (View view){
-        edage = findViewById(R.id.ed_age);
+       // edage = findViewById(R.id.ed_age);
        int age = Integer.parseInt(edage.getText().toString());
        user.setAge(age);
         Intent gender = new Intent(this , GenderActivity.class);
@@ -57,16 +60,18 @@ int [] num = {18 , 19 , 20 , 21};
             public void onBindViewHolder(@NonNull AgeViewHolder holder, final int position) {
                 // 因為setText放int會以為是value+ ""使num[position]變成String
 holder.ageText.setText(num[position]+"");
-if(num[position] == 19){
-    holder.ageText.setTextColor(Color.RED);
-}
-//holder.itemview.serOnClickListener() 用itemview可以不一定要按到數字才會有反應
-holder.ageText.setOnClickListener(new View.OnClickListener() {
+holder.itemView.setBackgroundColor(Color.parseColor(rainbow[position % 6]));
+//用itemview可以不用一定要按到數字才會有反應
+holder.itemView.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
-        Log.d("AgeActivuty" , "onclick" + num[position]);
+        Log.d("AgeActivity" , "onClick:" + num[position]);
+        edage.setText(num[position] + "");
     }
 });
+// 19變成紅字
+//if(num[position] == 19){
+//    holder.ageText.setTextColor(Color.RED);}
             }
 
             @Override
